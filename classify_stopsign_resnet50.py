@@ -65,7 +65,8 @@ def callback(image_msg):
       if stop_sign_debounce_counter > 50 and stop_sign_debounce_counter < 400:  # Checking if the stop sign is detected for more than some time then set the velocity to zero until some time before resuming the speed.
         velocity = 0
       if stop_sign_debounce_counter >= 400:  # Reset the stop_sign_detected after coming to a stop.
-        stop_sign_detected = False
+        stop_sign_detected = False  # Reset the detection flag
+        stop_sign_debounce_counter = 0  # Reset the counter once stop sign is crossed.
       
     # Publish the message
     # ---
